@@ -105,15 +105,13 @@
       mapCard.appendChild(iframe);
     };
 
-    // Carrega no primeiro clique/hover ou após scroll significativo (consent implícito por interação).
+    // Carrega apenas no clique/toque explícito. Hover não carrega para evitar cookies/JS do Google no Lighthouse.
     const onInteract = () => {
       loadMap();
       mapCard.removeEventListener('click', onInteract);
-      mapCard.removeEventListener('mouseenter', onInteract);
       mapCard.removeEventListener('touchstart', onInteract);
     };
     mapCard.addEventListener('click', onInteract);
-    mapCard.addEventListener('mouseenter', onInteract);
     mapCard.addEventListener('touchstart', onInteract, { passive: true });
     mapCard.style.cursor = 'pointer';
   }

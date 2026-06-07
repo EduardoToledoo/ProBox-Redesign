@@ -3,7 +3,8 @@
    Paleta oficial · Tipografia Lato · Pattern de marca
    ============================================ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;color-scheme:only light;background:#fff}
+html[data-theme="light"],:root{color-scheme:only light}
 body{font-family:"Lato","Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration:none}
@@ -153,6 +154,7 @@ p{font-size:16px;line-height:1.6}
 
 /* === SEÇÃO PADRÃO === */
 section{padding:100px 0;position:relative}
+section:not(.hero){content-visibility:auto;contain-intrinsic-size:1px 760px}
 .section-header{max-width:680px;margin-bottom:56px}
 .section-eyebrow{display:inline-block;font-size:12px;font-weight:800;color:#0F6FA8;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px}
 .section-title{margin-bottom:18px}
