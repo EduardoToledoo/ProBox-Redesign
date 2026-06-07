@@ -1,3 +1,4 @@
+
 (() => {
   'use strict';
 
@@ -31,7 +32,7 @@
       const x = (e.clientX - r.left) / r.width - 0.5;
       const y = (e.clientY - r.top) / r.height - 0.5;
       tilt.style.transform = `perspective(1200px) rotateY(${-3 + x * 6}deg) rotateX(${1 - y * 6}deg) translateY(${y * -4}px)`;
-    }, { passive: true });
+    });
     visual.addEventListener('mouseleave', () => { tilt.style.transform = ''; });
   }
 
@@ -75,7 +76,7 @@
     track.addEventListener('touchend', (e) => {
       const dx = e.changedTouches[0].clientX - startX;
       if (Math.abs(dx) > 40) go(idx + (dx < 0 ? 1 : -1));
-    }, { passive: true });
+    });
 
     const init = () => {
       perView = innerWidth < 900 ? 1 : 2;
@@ -85,11 +86,13 @@
     };
     init();
     let rT;
-    addEventListener('resize', () => { clearTimeout(rT); rT = setTimeout(init, 150); }, { passive: true });
+    addEventListener('resize', () => { clearTimeout(rT); rT = setTimeout(init, 150); });
   }
 
   const mapCard = document.getElementById('mapCard');
   if (mapCard) {
+    // Lazy load REAL: só carrega o iframe Google Maps após interação do usuário.
+    // Antes disso, zero requests/cookies pro google.com — protege performance e privacidade.
     const loadMap = () => {
       if (mapCard.dataset.loaded) return;
       mapCard.dataset.loaded = '1';
@@ -103,6 +106,7 @@
       mapCard.appendChild(iframe);
     };
 
+    // Carrega no primeiro clique/hover ou após scroll significativo (consent implícito por interação).
     const onInteract = () => {
       loadMap();
       mapCard.removeEventListener('click', onInteract);
