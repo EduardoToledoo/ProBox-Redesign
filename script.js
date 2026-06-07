@@ -90,8 +90,6 @@
 
   const mapCard = document.getElementById('mapCard');
   if (mapCard) {
-    // Lazy load REAL: só carrega o iframe Google Maps após interação do usuário.
-    // Antes disso, zero requests/cookies pro google.com — protege performance e privacidade.
     const loadMap = () => {
       if (mapCard.dataset.loaded) return;
       mapCard.dataset.loaded = '1';
@@ -105,7 +103,6 @@
       mapCard.appendChild(iframe);
     };
 
-    // Carrega apenas no clique/toque explícito. Hover não carrega para evitar cookies/JS do Google no Lighthouse.
     const onInteract = () => {
       loadMap();
       mapCard.removeEventListener('click', onInteract);
