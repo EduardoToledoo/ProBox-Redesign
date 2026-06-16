@@ -152,7 +152,7 @@ p {
   align-items: center;
 }
 .brand img {
-  height: 72px;
+  height: auto;
   width: auto;
 }
 .nav-links {
