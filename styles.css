@@ -152,8 +152,9 @@ p {
   align-items: center;
 }
 .brand img {
-  height: auto;
+  height: 72px;
   width: auto;
+  aspect-ratio: 400 / 266;
 }
 .nav-links {
   display: flex;
