@@ -159,4 +159,51 @@
     mapCard.addEventListener("touchstart", onInteract, { passive: true });
     mapCard.style.cursor = "pointer";
   }
+
+  (function () {
+    if (localStorage.getItem("cookie_consent")) {
+      loadGtag();
+      return;
+    }
+
+    const banner = document.createElement("div");
+    banner.id = "cookie-banner";
+    banner.innerHTML = `
+    <p>Usamos cookies para anúncios e analytics. <a href="#" style="color:var(--accent)">Saiba mais</a>.</p>
+    <button id="accept-cookies">Aceitar</button>
+  `;
+    banner.style.cssText = `
+    position:fixed;bottom:0;left:0;right:0;z-index:999;
+    background:#1a377c;color:#fff;padding:16px 24px;
+    display:flex;align-items:center;justify-content:space-between;
+    gap:16px;font-size:14px;
+  `;
+    banner.querySelector("button").style.cssText = `
+    background:#1ea0e1;color:#fff;border:none;
+    padding:10px 20px;border-radius:999px;
+    font-weight:700;cursor:pointer;white-space:nowrap;
+  `;
+    document.body.appendChild(banner);
+
+    document.getElementById("accept-cookies").addEventListener("click", () => {
+      localStorage.setItem("cookie_consent", "1");
+      banner.remove();
+      loadGtag();
+    });
+  })();
+
+  function loadGtag() {
+    const s = document.createElement("script");
+    s.src = "https://www.googletagmanager.com/gtag/js?id=AW-875465851";
+    s.async = true;
+    document.head.appendChild(s);
+    s.onload = function () {
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "AW-875465851");
+    };
+  }
 })();
