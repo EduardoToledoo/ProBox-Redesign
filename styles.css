@@ -153,8 +153,15 @@ p {
 }
 .brand img {
   height: 72px;
-  width: auto;
-  aspect-ratio: 400 / 266;
+  width: 108px;
+  object-fit: contain;
+}
+
+@media (max-width: 480px) {
+  .brand img {
+    height: 42px;
+    width: 63px;
+  }
 }
 .nav-links {
   display: flex;
@@ -1460,7 +1467,8 @@ section:not(.hero) {
 }
 .footer .brand img {
   height: 64px;
-  width: auto;
+  width: 118px;
+  object-fit: contain;
   border-radius: 9px;
   background: transparent;
 }
