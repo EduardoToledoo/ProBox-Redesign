@@ -2,6 +2,17 @@
 <html lang="pt-BR" data-theme="light">
   <head>
     <meta charset="UTF-8" />
+    <link
+      rel="preconnect"
+      href="https://www.googletagmanager.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://googleads.g.doubleclick.net"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://www.google.com" crossorigin />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
@@ -76,6 +87,7 @@
       href="assets/hero-storefront.jpg"
       fetchpriority="high"
     />
+    <link rel="preload" as="style" href="styles.css" />
     <link rel="stylesheet" href="styles.css" />
     <noscript>
       <style>
@@ -404,6 +416,8 @@
           <a href="#" class="brand" aria-label="ProBox Colchões — Início">
             <img
               src="assets/logo-light.jpg"
+              srcset="assets/logo-light-sm.jpg 108w, assets/logo-light.jpg 400w"
+              sizes="(max-width: 480px) 63px, 108px"
               alt="ProBox Colchões"
               width="108"
               height="72"
@@ -459,13 +473,18 @@
                   <svg aria-hidden="true"><use href="#i-wa" /></svg>Obtenha sua
                   cotação
                 </a>
-                <a class="btn-ghost" href="#produtos">Ver produtos →</a>
+                <a class="btn-ghost" href="#trabalhos">Ver produtos →</a>
               </div>
             </div>
             <div class="hero-visual reveal">
               <div class="hero-frame">
                 <img
                   src="assets/hero-storefront.jpg"
+                  srcset="
+                    assets/hero-storefront-sm.webp 400w,
+                    assets/hero-storefront.jpg     675w
+                  "
+                  sizes="(max-width: 960px) 100vw, 520px"
                   alt="Fachada da loja ProBox Colchões no Ipiranga"
                   width="520"
                   height="650"
@@ -677,7 +696,7 @@
           <header class="section-header reveal">
             <span class="section-eyebrow">Projetos entregues</span>
             <h2 class="section-title" id="trabalhos-title">
-              Nossos trabalhos: colchões, box baú e cabeceiras ProBox.
+              Nossos trabalhos: colchões, recamiers e cabeceiras ProBox.
             </h2>
             <p class="section-lead">
               Veja algumas entregas e peças de fabricação própria: colchões,
@@ -701,11 +720,11 @@
                 </div>
                 <figcaption class="work-copy">
                   <span class="work-type">Projeto completo</span>
-                  <h3>Colchão, banco baú e cabeceira</h3>
+                  <h3>Colchão, cabeceira capitonê e recamier</h3>
                   <p>
-                    Conjunto estofado para quarto de casal, com acabamento
-                    alinhado, conforto diário e aproveitamento inteligente do
-                    espaço.
+                    Conjunto tudo fabricado e entregue pela ProBox para um
+                    quarto de casal com visual uniforme e espaço aproveitado ao
+                    máximo.
                   </p>
                 </figcaption>
               </figure>
@@ -1001,8 +1020,8 @@
                 Vamos conversar<br />sobre seu sono.
               </h2>
               <p class="section-lead">
-                Estamos a um clique no WhatsApp ou venha tomar um café na
-                loja, no Ipiranga.
+                Estamos a um clique no WhatsApp ou venha tomar um café na loja,
+                no Ipiranga.
               </p>
 
               <div class="contact-info">
