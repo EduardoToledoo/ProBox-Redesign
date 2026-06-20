@@ -1023,7 +1023,7 @@ section:not(.hero) {
 }
 .showroom-text h2 em {
   font-style: italic;
-  color: var(--accent);
+  color: #fff;
 }
 .showroom-text p {
   color: rgba(255, 255, 255, 0.85);
@@ -1041,7 +1041,7 @@ section:not(.hero) {
   display: block;
   font-size: 32px;
   font-weight: 900;
-  color: var(--accent);
+  color: #fff;
   font-style: italic;
   line-height: 1;
 }
